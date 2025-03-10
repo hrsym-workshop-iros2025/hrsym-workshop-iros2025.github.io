@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>INT2 Dataset</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css">	
+<link rel="stylesheet" type="text/css" href="css/add.css">	
+<link rel="shortcut icon" href="images/int2_logo_little.png" />
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+</head>
+
+<body id="doc_body" style="background-image: -webkit-linear-gradient(135deg, gray 40%, #323232 60%);">
+	<div class="index-header clearfix">
+		<div class="index-logo fl">
+			<a href=""><img src="images/int2_logo.png" style="width: 100px; height: 45px;"></a>
+		</div>
+		<ul class="index-nav fl">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="doc.html">Doc</a></li>
+			<li><a href="download.html">Download</a></li>
+			<li><a href="challenges.html">Challenges</a></li>
+			<li><a href="https://github.com/BJHYZJ/INT2/issues">FAQ</a></li>
+		</ul>
+		<div class="index-header-right fr">
+			<a href="" class="search-btn">Search</a>	
+			<a href="" class="erweima">
+				<div class="erweima-pic">
+					<img width="100px" src="images/air_discover.png">
+				</div>
+			</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+		
+	<div class="search_sec">
+		<a href="#" title="" class="close-search"><i class=" la-close"><img src="images/icon5.png"></i></a>
+		<div class="search_field">
+			<div class="container">
+				<form>
+					<input type="text" name="search" placeholder="Search for...">
+					<button type="submit"><img src="images/search2.png" alt=""></button>
+				</form>
+			</div>
+		</div>
+	</div>	
+
+
+<div id="wrap">
+
+	<div id="top clearfix" class="add-about-main">
+		<div class="add-center-contain">
+			<img src="images/doc.png">
+		</div>
+		<div class="add-top-article">
+			<a>INT2 DOC</a><br><br>
+			<p>Here is the information regarding the data names, descriptions, data types, and data formats for INT2 Complete scenario and split scenario.</p> 
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	
+	
+	<div class="clear"></div>
+
+	<div class="add-doc-center">
+		<div class="add-doc-center-page">
+			<div class="add-doc-center-page-article">
+                <div class="add-top1">
+					<a class="add-top1-s">Complete Scenario</a>
+				</div>
+				<table class="add-table">
+					<tr class="tr1">
+						<td class="td-s">Key</td>
+						<td class="td-s">Description</td>
+						<td class="td-s">Data Dimensions (each one)</td>
+						<td class="td-s">Data Type</td>
+						<td class="td-s">Value Range</td>
+					  </tr>
+					  <tr>
+						<td>DATA_ACQUISITION_TIME/begin</td>
+						<td>The start time of data segment collection, specified precisely to the month, day, hour, minute, and second.</td>
+						<td>{1}</td>
+						<td>dict</td>
+						<td>{time format}</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>DATA_ACQUISITION_TIME/end</td>
+						<td>The end time of data segment collection, specified precisely to the month, day, hour, minute, and second.</td>
+						<td>{1}</td>
+						<td>dict</td>
+						<td>{time format}</td>
+					  </tr>
+					  <tr>
+						<td>TIMESTAMP_SCENARIO</td>
+						<td>The complete timestamp on the complete scene.</td>
+						<td>[scenario_len, 1]</td>
+						<td>float</td>
+						<td>Time (s)</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>MAP_ID</td>
+						<td>The hdmap ID corresponding to the scene</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>{0~16}</td>
+					  </tr>
+					  <tr>
+						<td>SCENARIO_ID</td>
+						<td>The name of the scene, named as "start time - end time".</td>
+						<td>[1]</td>
+						<td>string</td>
+						<td>The unique name of the scene.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>AGENT_INFO/object_id</td>
+						<td>An integer ID for each object.</td>
+						<td>[num_objects]</td>
+						<td>int32</td>
+						<td>An object ID.</td>
+					  </tr>
+					  <tr>
+						<td>AGENT_INFO/object_type</td>
+						<td>An integer type for each object (Vehicle, Pedestrian, or Cyclist)</td>
+						<td>[num_objects]</td>
+						<td>int32</td>
+						<td>BICYCLE=0, Pedestrian=1, Vehicle=2</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>AGENT_INFO/object_sub_type</td>
+						<td>An integer type for each object (CYCLIST, MOTORCYCLIST, TRICYCLIST et al.)</td>
+						<td>[num_objects]</td>
+						<td>int32</td>
+						<td>CYCLIST=0, MOTORCYCLIST=1, TRICYCLIST=2, PEDESTRIAN=3, CAR=4, VAN=5, BUS=6, TRUCK=7</td>
+					  </tr>
+					  <tr>
+						<td>AGENT_INFO/state/position_x</td>
+						<td>The x coordinate of each object at each time step.</td>
+						<td>[num_objects, num_steps]</td>
+						<td>float</td>
+						<td>Global coordinates, meters.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>AGENT_INFO/state/position_y</td>
+						<td>The y coordinate of each object at each time step.</td>
+                        <td>[num_objects, num_steps]</td>
+                        <td>float</td>
+                        <td>Global coordinates, meters.</td>
+					  </tr>
+					  <tr>
+						<td>AGENT_INFO/state/position_z</td>
+						<td>The z coordinate of each object at each time step.</td>
+                        <td>[num_objects, num_steps]</td>
+                        <td>float</td>
+                        <td>Global coordinates, meters.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>AGENT_INFO/state/theta</td>
+						<td>The theta coordinate of each object at each time step.</td>
+                        <td>[num_objects, num_steps]</td>
+                        <td>float</td>
+                        <td>Angle in radians. This is the angle to rotate a unit vector in the X direction in the X-Y plane to align with the length axis of the object bounding box.</td>
+					  </tr>
+					  <tr>
+						<td>AGENT_INFO/state/velocity_x</td>
+						<td>The x component of the object velocity at each time step.</td>
+						<td>[num_objects, num_steps]</td>
+						<td>float</td>
+						<td>m/s</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>AGENT_INFO/state/velocity_y</td>
+						<td>The y component of the object velocity at each time step.</td>
+						<td>[num_objects, num_steps]</td>
+						<td>float</td>
+						<td>m/s</td>
+					  </tr>
+					  <tr>
+						<td>AGENT_INFO/state/length</td>
+						<td>The length of each object at each time step.</td>
+						<td>[num_objects, num_steps]</td>
+						<td>float</td>
+						<td>Length in meters.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>AGENT_INFO/state/width</td>
+						<td>The width of each object at each time step.</td>
+						<td>[num_objects, num_steps]</td>
+						<td>float</td>
+						<td>Width in meters.</td>
+					  </tr>
+					  <tr>
+						<td>AGENT_INFO/state/height</td>
+						<td>The height of each object at each time step.</td>
+						<td>[num_objects, num_steps]</td>
+						<td>float</td>
+						<td>Height in meters.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>AGENT_INFO/state/valid</td>
+						<td>A valid flag for all elements of features AGENT_INFO/state/XX. If set to 1, the element is populated with valid data, otherwise it is populated with -1.</td>
+						<td>[num_objects, num_steps]</td>
+						<td>int32</td>
+						<td>{0, 1}. Indicates if the data at each element of the AGENT_INFO/state/XX tensors is populated with valid data (rather than being padded with -1).</td>
+					  </tr>
+					  <tr>
+						<td>TRAFFIC_LIGHTS_INFO/tf_mapping_lane_id</td>
+						<td>Road ID controlled by traffic signal lights.</td>
+						<td>[num_traffic_lights]</td>
+						<td>int32</td>
+						<td>An integer lane ID.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>TRAFFIC_LIGHTS_INFO/tf_state_valid</td>
+						<td>A valid flag for all elements of features TRAFFIC_LIGHTS_INFO/XX. If set to 1, the element is populated with valid data, otherwise it is populated with -1.</td>
+						<td>[num_traffic_lights, num_steps]</td>
+						<td>int32</td>
+						<td>{0, 1}</td>
+					  </tr>
+					  <tr>
+						<td>TRAFFIC_LIGHTS_INFO/tf_state</td>
+						<td>The state of each traffic light at each time step.</td>
+						<td>[num_traffic_lights, num_steps]</td>
+						<td>int32</td>
+						<td>RED=0, GREEN=1, YELLOW=2</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>INTERACTION_INFO/interested_agents</td>
+						<td>The ID of interested agents.</td>
+						<td>[num_interested_agents]</td>
+						<td>int32</td>
+						<td>An integer interested agents ID.</td>
+					  </tr>
+					  <tr>
+						<td>INTERACTION_INFO/interaction_pair_info/influencer_id</td>
+						<td>The ID of influencer agent.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>An integer influencer agent ID.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>INTERACTION_INFO/interaction_pair_info/reactor_id</td>
+						<td>The ID of reactor agent.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>An integer reactor agent ID.</td>
+					  </tr>
+					  <tr>
+						<td>INTERACTION_INFO/interaction_pair_info/influencer_type</td>
+						<td>The type of influencer agent.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>BICYCLE=0, Pedestrian=1, Vehicle=2</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>INTERACTION_INFO/interaction_pair_info/reactor_type</td>
+						<td>The type of reactor agent.</td>
+						<td>[1]]</td>
+						<td>int32</td>
+						<td>BICYCLE=0, Pedestrian=1, Vehicle=2</td>
+					  </tr>
+					  <tr>
+						<td>INTERACTION_INFO/interaction_pair_info/coexistence_time</td>
+						<td>The time when both influencer agent and reactor agent coexist.</td>
+						<td>[num_coexit_step_indices]</td>
+						<td>int32</td>
+						<td>A list of coexit step time's indices</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>INTERACTION_INFO/interaction_pair_info/interaction_time</td>
+						<td>The index corresponding to the time during which there is interaction between influencer agent and reactor agent.</td>
+						<td>[num_interaction_step_indices]</td>
+						<td>int32</td>
+						<td>A list of interaction step time's indices</td>
+					  </tr>
+					  <tr>
+						<td>hdmap/LANE/has_traffic_control</td>
+						<td>Whether the road is controlled by traffic signal lights.</td>
+						<td>[1]</td>
+						<td>bool</td>
+						<td>{true, false}</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>hdmap/LANE/lane_type</td>
+						<td>The type of road.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>BIKING=0, CITY_DRIVING=1, EMERGENCY_LANE=2, LEFT_TURN_WAITING_ZONE=3, ROUNDABOUT=4</td>
+					  </tr>
+					  <tr>
+						<td>hdmap/LANE/turn_direction</td>
+						<td>Whether the road have a turning direction.</td>
+						<td>[1]</td>
+						<td>bool</td>
+						<td>{true, false}</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>hdmap/LANE/is_intersection</td>
+						<td>Whether it is an intersection.</td>
+						<td>[1]</td>
+						<td>bool</td>
+						<td>{true, false}</td>
+					  </tr>
+					  <tr>
+						<td>hdmap/LANE/left_neighbor_id</td>
+						<td>The ID of the adjacent lane on the left side.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>An integer left neighbor lane ID.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>hdmap/LANE/right_neighbor_id</td>
+						<td>The ID of the adjacent lane on the right side.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>An integer right neighbor lane ID.</td>
+					  </tr>
+					  <tr>
+						<td>hdmap/LANE/predecessors</td>
+						<td>The lane ID that follows the current lane.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>An integer lane ID which follows current lane.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>hdmap/LANE/successors</td>
+						<td>The lane ID reached after crossing the current lane.</td>
+						<td>[1]</td>
+						<td>int32</td>
+						<td>An integer lane ID that will be reached after crossing the current lane.</td>
+					  </tr>
+					  <tr>
+						<td>hdmap/LANE/centerline</td>
+						<td>"The centerline of the lane.</td>
+						<td>[num_lane_points, 2]</td>
+						<td>float</td>
+						<td>A series of coordinate points representing the centerline of the road.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>hdmap/LANE/left_boundary</td>
+						<td>The left boundary of the lane.</td>
+						<td>[num_lane_points, 2]</td>
+						<td>float</td>
+						<td>A series of coordinate points representing the left boundary of the road.</td>
+					  </tr>
+					  <tr>
+						<td>hdmap/LANE/right_boundary</td>
+						<td>"The right boundary of the lane.</td>
+						<td>[num_lane_points, 2]</td>
+						<td>float</td>
+						<td>A series of coordinate points representing the right boundary of the road.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>hdmap/STOPLINE/centerline</td>
+						<td>The stop line.</td>
+						<td>[num_stoplane_points, 2]</td>
+						<td>float</td>
+						<td>A series of coordinate points representing the stop lane of the road.</td>
+					  </tr>
+					  <tr>
+						<td>hdmap/CROSSWALK/polygon</td>
+						<td>The outer boundary line of the crosswalk.</td>
+						<td>[num_crosswalk_points, 2]</td>
+						<td>float</td>
+						<td>A series of coordinate points representing the crosswalk of the road.</td>
+					  </tr>
+					  <tr class="tr2">
+						<td>hdmap/JUNCTION/polygon</td>
+						<td>The outer boundary line of the junction.</td>
+						<td>[num_junction_points, 2]</td>
+						<td>float</td>
+						<td>A series of coordinate points representing the junction of the road.</td>
+					  </tr>
+                      <tr>
+						<td>hdmap/MAP_RANGE</td>
+						<td>The extent of the intersection."</td>
+						<td>[x_start, x_end, y_start, y_end]</td>
+						<td>float</td>
+						<td>The coordinate points defining the boundaries of the intersection.</td>
+					  </tr>
+				</table>
+                <div class="add-top1">
+					<a class="add-top1-s">Split Scenario</a>
+                    <br>
+                    <p>Split scenario is an extension of the complete scenario that includes an additional information configuration file.</p>
+                    <br>
+				</div>
+                <table class="add-table1">
+					<tr class="tr1">
+						<td class="td-s">Key</td>
+						<td class="td-s">Description</td>
+						<td class="td-s">Data Dimensions (each one)</td>
+						<td class="td-s">Data Type</td>
+						<td class="td-s">Value Range</td>
+					</tr>
+                    <tr>
+						<td>split_interaction_info/interested_agents</td>
+						<td>The ID of interested agents, just conclude influencer and reactor agent ID.</td>
+						<td>[num_interested_agents]</td>
+						<td>int32</td>
+						<td>An integer interested agents ID, , just conclude influencer and reactor agent.</td>
+					</tr>
+                    <tr>
+						<td>split_interaction_info/split_time_91</td>
+						<td>The time range during which the interaction occurs.</td>
+						<td>[2]</td>
+						<td>int32</td>
+						<td>The time indices corresponding to the initial time and end time of the interaction occurrence.</td>
+					</tr>
+                </table>
+			</div>
+		</div>
+	</div>
+	
+	<!--footer-->
+	<div class="index-footer">										
+		<div class="clearfix index-footer-info index-con">
+			<a href="">
+				<div class="logo fl">
+					<img width="240px" height="160px" src="images/int2.png">
+				</div>
+			</a>
+			<div class="lianxi fl">
+				<p>Mail: discover@air.tshinghua.edu.cn</p>
+				<P>Address: Floor 12, Block C, Tus Technology Building, Tsinghua Science and Technology Park, Haidian District, Beijing</P>
+			</div>
+			<div class="erweima fr">
+				<img src="images/air_discover.png">
+				<p>Discover Lab</p>
+				<p>Official WeChat</p>
+			</div>
+		</div>
+		
+		<div class="index-footer-bottom">
+			<div class="index-con clearfix">
+				<img class="fl" src="images/police.b50aba94.png" width="20px" style="margin-top: 5px; margin-right: 5px;">
+				<p class="fl">版权所有清华大学智能产业研究院  <a href="https://beian.miit.gov.cn/#/Integrated/index">| 赣ICP备2021002337号-3</a></p>
+				<a class="fr">Do Not Sell or Share My Personal Information</a>
+			</div>
+		</div>
+	</div>	
+	<div class="clear"></div>
+	
+</div>
+
+<script type="text/javascript" src="http://www.5imoban.net/download/jquery/jquery-3.2.1.min.js"></script>
+<script src="js/scrollReveal.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.countup.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type='text/javascript' src='js/base.js'></script>
+<script type="text/javascript" src='js/app.js'></script>
+<script src="js/more.js"></script>
+<script>
+$(function () {
+    window.scrollReveal = new scrollReveal();
+    $("[data-ride|='numberGrow']").countUp({
+        delay: 10,
+        time: 800
+    });
+
+    scrolly.init({
+		wrapper: '#bloc',
+		targets: '.scr-el',
+		bgParallax: true,
+		wrapperSpeed: 0.08
+	});	
+});
+
+jQuery(".fzlc").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:5,interTime:5000});
+</script>
+</body>
+</html>
