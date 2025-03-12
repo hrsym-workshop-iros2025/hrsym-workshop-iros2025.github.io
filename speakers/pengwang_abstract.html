@@ -46,12 +46,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="#header">Home</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="speakers.html">Speakers</a></li>
-          <li><a href="organizers.html">Organizers</a></li>
-          <li><a href="call_for_paper.html">Call for Papers</a></li>
-          <li><a href="http://www.iros25.org/">IROS'25 Website</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../schedule.html">Schedule</a></li>
+          <li><a href="../speakers.html">Speakers</a></li>
+          <li><a href="../organizers.html">Organizers</a></li>
+          <li><a href="../content.html">Content</a></li>
+          <li><a href="../call_for_paper.html">Call for Papers</a></li>
+          <li><a href="../http://www.iros25.org/">IROS'25 Website</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -76,7 +77,17 @@
         <p style="text-align: left;"> <strong>Topic:</strong> Harnessing Plant Data for Unleashing the Power of AI on the Shop Floor of Robotic Welding</p>
 
           
-        <p style="text-align: left;"> <strong>Abstract:</strong> TBD.</p>
+        <p style="text-align: left;"> <strong>Abstract:</strong> Machine learning (ML) models trained on limited labeled lab data often struggle to generalize across diverse robotic welding systems, materials, 
+          and dynamic process conditions. In contrast, vast amounts of plant data from robotic welding operations remain largely unlabeled, making supervised learning impractical. This work introduces 
+          a multi-scale contrastive learning (MSCL) framework to extract meaningful representations from unlabeled plant data, enabling the development of highly adaptable AI models for intelligent robotic 
+          welding. Our MSCL approach leverages meta-information—such as material stack-up, electrode conditions, and robotic process parameters—to guide representation learning. It employs contrastive 
+          learning techniques at multiple scales—instance-level and meta-level—to structure the feature space effectively. At the instance level, contrastive loss ensures that embeddings of similar welding instances 
+          (e.g., from the same material stack-up) are pulled closer, while dissimilar instances are pushed apart. At the group level, hierarchical clustering techniques further refine the feature space to 
+          align with the underlying robotic welding process dynamics. This enables AI models to learn robust feature representations without explicit labels.</p>
+        <p style="text-align: left;">By training on large-scale, real-world robotic welding data, the resulting ML model is both adaptive to varying process conditions and versatile across downstream applications, 
+          including defect detection and weld quality prediction. Experimental results demonstrate that our approach enables expulsion detection in novel material stack-ups without fine-tuning or 
+          transfer learning. For quality prediction tasks, it outperforms conventional transfer learning approaches, achieving superior accuracy and robustness. Beyond resistance spot welding, 
+          this methodology has significant potential for other robotic welding processes, such as laser welding in EV battery manufacturing, where label scarcity and process variability present similar challenges.</p>
 
 
       </div>
